@@ -323,7 +323,6 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
   <div class="tools">
     <div class="count" id="count" aria-live="polite">01 <span>/ 13</span></div>
     <button class="ibtn" id="play" type="button" aria-pressed="false" aria-label="Putar otomatis"><svg viewBox="0 0 24 24" id="play-i"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg></button>
-    <button class="ibtn" id="install" type="button" hidden aria-label="Pasang sebagai aplikasi"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></button>
     <button class="ibtn" id="theme" type="button" aria-label="Ganti tema terang atau gelap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
     <button class="ibtn" id="fs" type="button" aria-label="Layar penuh"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
   </div>
@@ -341,8 +340,7 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
       <ol class="steps" data-a>
         <li><span>1</span><div><b>Arahkan kamera</b><small>Buka kamera HP, arahkan ke kode QR.</small></div></li>
         <li><span>2</span><div><b>Ketuk tautannya</b><small>Presentasi terbuka di layar Anda.</small></div></li>
-        <li><span>3</span><div><b>Pasang sebagai aplikasi</b><small>Satu ketukan, jadi ikon di layar utama.</small></div></li>
-      </ol>
+        </ol>
       <p class="who-line" data-a><i></i>Nadia Nadien &nbsp;•&nbsp; Naufal Maulana Nosi P</p>
     </div>
     <div class="qrcard" data-a>
@@ -352,8 +350,6 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
         <b class="cn tl"></b><b class="cn tr"></b><b class="cn bl"></b><b class="cn br"></b>
       </div>
       <span class="qrcap">SCAN SAYA</span>
-      <button class="instbtn" id="install2" type="button" hidden><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Pasang aplikasi</button>
-      <p class="qrhow" id="qrhow"><b>Android:</b> pilih <b>Pasang aplikasi</b>. &nbsp; <b>iPhone:</b> <b>Bagikan</b> lalu <b>Tambah ke Layar Utama</b>.</p>
       <span class="qrurl">naufalmaulananosipratama-sketch.github.io/presentasi</span>
     </div>
   </div>
@@ -609,20 +605,6 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 
 </main>
 
-<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gt">
-  <div class="box">
-    <img src="icon-192.png" alt="">
-    <h3 id="gt">Buka sebagai aplikasi</h3>
-    <div id="g-and" hidden>
-      <p id="g-and-t">Ketuk tombol di bawah untuk memasang TVM. Tanpa unduh file, langsung jadi aplikasi.</p>
-    </div>
-    <div id="g-ios" hidden>
-      <ol><li>Ketuk tombol <b>Bagikan</b> di Safari.</li><li>Pilih <b>Tambah ke Layar Utama</b>.</li><li>Buka ikon <b>TVM</b> dari layar utama.</li></ol>
-    </div>
-    <button class="instbtn" id="g-install" type="button" hidden>Buka sebagai aplikasi</button>
-    <button class="skip" id="g-skip" type="button">Lanjut di web</button>
-  </div>
-</div>
 <canvas id="cf" aria-hidden="true"></canvas>
 <div class="hint" id="hint">Tekan ← → atau geser untuk pindah slide</div>
 
