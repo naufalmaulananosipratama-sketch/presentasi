@@ -7,7 +7,17 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" type="image/png" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-192.png">
-<style>[hidden]{display:none!important}</style>
+<style>[hidden]{display:none!important}.qrcard{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.qrbox{background:#fff;padding:clamp(14px,2.4vw,22px);border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.35);width:clamp(210px,30vw,320px);aspect-ratio:1}
+.qrbox svg{display:block;width:100%;height:100%}
+.qrcard .qrcap{font:700 12px var(--f-mono);letter-spacing:.14em;color:var(--accent)}
+.qrcard .qrurl{font:600 12px var(--f-mono);color:var(--muted);word-break:break-all;max-width:28em}
+.qrcard .qrhow{font-size:.9rem;color:var(--muted);max-width:30em;line-height:1.5}
+.qrcard .qrhow b{color:var(--fg)}
+.instbtn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:0;cursor:pointer;background:var(--accent);color:var(--accent-ink);font:700 .95rem var(--f-body,inherit)}
+.instbtn[hidden]{display:none}
+.instbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hello h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}</style>
 <title>Time Value of Money</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -228,7 +238,17 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
   .slide,.slide.active,[data-a],.active [data-a],.bar .stack,.curve .c,.progress i{transition:none!important}
   .curve .c{stroke-dashoffset:0}
 }
-</style>
+.qrcard{display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.qrbox{background:#fff;padding:clamp(14px,2.4vw,22px);border-radius:22px;box-shadow:0 18px 50px rgba(0,0,0,.35);width:clamp(210px,30vw,320px);aspect-ratio:1}
+.qrbox svg{display:block;width:100%;height:100%}
+.qrcard .qrcap{font:700 12px var(--f-mono);letter-spacing:.14em;color:var(--accent)}
+.qrcard .qrurl{font:600 12px var(--f-mono);color:var(--muted);word-break:break-all;max-width:28em}
+.qrcard .qrhow{font-size:.9rem;color:var(--muted);max-width:30em;line-height:1.5}
+.qrcard .qrhow b{color:var(--fg)}
+.instbtn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:0;cursor:pointer;background:var(--accent);color:var(--accent-ink);font:700 .95rem var(--f-body,inherit)}
+.instbtn[hidden]{display:none}
+.instbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hello h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}</style>
 
 <div class="bg" aria-hidden="true"><canvas id="fx"></canvas></div>
 <div class="orb a" id="orba" aria-hidden="true"></div><div class="orb b" id="orbb" aria-hidden="true"></div>
@@ -237,7 +257,7 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 <header class="top">
   <div class="brand"><b>TVM</b> <span>• Time Value of Money</span></div>
   <div class="tools">
-    <div class="count" id="count" aria-live="polite">01 <span>/ 12</span></div>
+    <div class="count" id="count" aria-live="polite">01 <span>/ 13</span></div>
     <button class="ibtn" id="play" type="button" aria-pressed="false" aria-label="Putar otomatis"><svg viewBox="0 0 24 24" id="play-i"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg></button>
     <button class="ibtn" id="install" type="button" hidden aria-label="Pasang sebagai aplikasi"><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></button>
     <button class="ibtn" id="theme" type="button" aria-label="Ganti tema terang atau gelap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
@@ -247,6 +267,30 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 
 <main class="deck" id="deck">
 
+<!-- 0 PERKENALAN + QR -->
+<section class="slide hello cover" data-title="Perkenalan">
+  <div class="inner">
+    <div>
+      <p class="eyebrow" data-a>Perkenalan</p>
+      <h2 data-a>Halo, kami <span class="grad">Kelompok 3</span></h2>
+      <p class="lead" data-a>Hari ini kami akan membahas <b>Time Value of Money</b>: mengapa nilai uang hari ini berbeda dengan nilai uang di masa depan, lengkap dengan rumus dan contohnya.</p>
+      <div class="team" data-a>
+        <div class="team-badge"><small>KELOMPOK</small><b>3</b></div>
+        <ul class="team-list" aria-label="Anggota Kelompok 3">
+          <li><span class="av">ND</span><span class="who"><small>ANGGOTA 1</small><span class="nm">Nadia Nadien</span><span class="nim">B.131.25.0336</span></span></li>
+          <li><span class="av">NM</span><span class="who"><small>ANGGOTA 2</small><span class="nm">Naufal Maulana Nosi P</span><span class="nim">B.131.25.0328</span></span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="qrcard" data-a>
+      <div class="qrbox"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code menuju presentasi TVM" shape-rendering="crispEdges" viewBox="0 0 37 37" class="segno"><path class="qrline" stroke="#000" d="M0 0.5h7m1 0h2m1 0h2m1 0h2m1 0h3m5 0h1m4 0h7m-37 1h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h4m1 0h1m4 0h2m1 0h1m1 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h4m3 0h1m4 0h2m2 0h5m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h8m1 0h1m1 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m1 0h3m1 0h2m5 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m2 0h3m1 0h1m3 0h2m1 0h4m1 0h1m4 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-26 1h2m1 0h3m2 0h1m3 0h3m2 0h1m-29 1h1m2 0h6m2 0h1m2 0h3m1 0h1m1 0h3m3 0h1m1 0h2m2 0h1m1 0h3m-34 1h3m2 0h1m2 0h2m1 0h1m2 0h1m2 0h1m1 0h2m2 0h2m1 0h1m1 0h5m-36 1h4m1 0h3m2 0h1m1 0h3m3 0h1m2 0h1m1 0h1m3 0h1m4 0h1m3 0h1m-37 1h2m2 0h1m2 0h4m2 0h3m1 0h1m4 0h2m2 0h1m2 0h1m3 0h4m-34 1h1m1 0h8m3 0h1m2 0h2m6 0h2m1 0h2m1 0h1m2 0h1m-37 1h2m2 0h1m2 0h1m5 0h1m1 0h4m1 0h1m1 0h2m2 0h3m3 0h2m1 0h1m-35 1h1m1 0h4m2 0h2m4 0h1m1 0h1m1 0h4m2 0h1m1 0h2m1 0h1m1 0h5m-37 1h1m2 0h1m3 0h2m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m7 0h1m1 0h2m1 0h1m-37 1h1m2 0h4m2 0h1m3 0h1m1 0h3m2 0h2m3 0h2m1 0h1m1 0h2m2 0h2m-31 1h1m2 0h1m3 0h2m2 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h1m-34 1h1m4 0h1m3 0h1m1 0h1m1 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h4m2 0h1m2 0h1m-37 1h1m1 0h1m2 0h1m3 0h1m3 0h1m9 0h8m5 0h1m-35 1h3m1 0h1m2 0h3m1 0h5m6 0h1m1 0h1m1 0h6m-34 1h1m1 0h3m2 0h1m1 0h1m2 0h1m1 0h2m3 0h1m1 0h3m1 0h3m1 0h1m2 0h1m1 0h1m-35 1h2m2 0h1m1 0h2m4 0h1m1 0h2m1 0h2m3 0h4m1 0h2m1 0h2m1 0h1m2 0h1m-35 1h3m2 0h2m2 0h2m1 0h2m1 0h1m2 0h3m3 0h1m1 0h1m1 0h7m-37 1h2m3 0h2m1 0h3m2 0h2m1 0h3m2 0h1m2 0h1m1 0h3m1 0h2m4 0h1m-37 1h1m1 0h3m3 0h1m1 0h2m1 0h1m2 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h4m-35 1h5m1 0h2m6 0h1m1 0h1m2 0h4m1 0h2m1 0h1m1 0h2m1 0h2m1 0h2m-37 1h1m2 0h2m2 0h1m1 0h3m2 0h2m2 0h1m1 0h1m2 0h2m4 0h3m1 0h2m1 0h1m-37 1h1m4 0h5m10 0h1m1 0h4m1 0h8m1 0h1m-29 1h3m2 0h1m1 0h2m1 0h3m4 0h1m2 0h1m3 0h1m1 0h1m-35 1h7m1 0h3m2 0h1m1 0h2m2 0h1m1 0h3m4 0h1m1 0h1m1 0h1m3 0h1m-37 1h1m5 0h1m1 0h1m2 0h1m5 0h4m1 0h1m1 0h2m1 0h2m3 0h1m2 0h2m-37 1h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h2m3 0h7m-33 1h1m1 0h3m1 0h1m1 0h5m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m3 0h2m5 0h1m-37 1h1m1 0h3m1 0h1m4 0h1m3 0h2m1 0h6m1 0h1m3 0h1m2 0h1m3 0h1m-37 1h1m5 0h1m7 0h1m1 0h2m1 0h2m1 0h1m1 0h1m4 0h2m1 0h5m-37 1h7m1 0h2m2 0h1m2 0h2m3 0h1m2 0h2m3 0h1m2 0h1m1 0h1m2 0h1"/></svg></div>
+      <span class="qrcap">SCAN • BUKA SEBAGAI APLIKASI</span>
+      <button class="instbtn" id="install2" type="button" hidden><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Pasang aplikasi</button>
+      <p class="qrhow" id="qrhow"><b>Android (Chrome):</b> scan, lalu pilih <b>Pasang aplikasi</b>.<br><b>iPhone (Safari):</b> scan, ketuk <b>Bagikan</b>, lalu <b>Tambah ke Layar Utama</b>.</p>
+      <span class="qrurl">naufalmaulananosipratama-sketch.github.io/presentasi</span>
+    </div>
+  </div>
+</section>
 <!-- 1 COVER -->
 <section class="slide cover" data-title="Sampul">
   <div class="inner">
@@ -807,10 +851,14 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 <script>
 (function(){
   if('serviceWorker' in navigator&&location.protocol.indexOf('http')===0){window.addEventListener('load',function(){navigator.serviceWorker.register('sw.js').catch(function(){})})}
-  var dp=null,b=document.getElementById('install');
-  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;if(b)b.hidden=false});
-  window.addEventListener('appinstalled',function(){if(b)b.hidden=true;dp=null});
-  if(b)b.addEventListener('click',function(){if(!dp)return;dp.prompt();dp=null;b.hidden=true});
+  var dp=null,b=document.getElementById('install'),b2=document.getElementById('install2'),how=document.getElementById('qrhow');
+  function show(v){if(b)b.hidden=!v;if(b2)b2.hidden=!v;if(how)how.style.display=v?'none':''}
+  function ask(){if(!dp)return;dp.prompt();dp=null;show(false)}
+  if(window.matchMedia&&matchMedia('(display-mode: standalone)').matches||navigator.standalone){if(how)how.style.display='none'}
+  window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;show(true)});
+  window.addEventListener('appinstalled',function(){dp=null;show(false);if(how)how.style.display='none'});
+  if(b)b.addEventListener('click',ask);
+  if(b2)b2.addEventListener('click',ask);
 })();
 </script>
 </html>
