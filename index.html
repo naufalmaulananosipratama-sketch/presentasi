@@ -25,7 +25,31 @@
 .gate p{margin:0;color:#93a3c0;line-height:1.55;font-size:.98rem}
 .gate ol{margin:0;padding-left:1.2em;text-align:left;color:#93a3c0;line-height:1.7}
 .gate a.instbtn{text-decoration:none}
-.gate .skip{background:none;border:0;color:#93a3c0;font:600 .9rem inherit;cursor:pointer;text-decoration:underline;padding:8px}</style>
+.gate .skip{background:none;border:0;color:#93a3c0;font:600 .9rem inherit;cursor:pointer;text-decoration:underline;padding:8px}.hello h2{font-size:clamp(2.2rem,min(6.8vw,10vh),4.4rem)}
+.steps{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px;max-width:30em}
+.steps li{display:flex;align-items:center;gap:14px;padding:8px 14px;border-radius:16px;border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.steps li>span{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 15px var(--f-mono);color:var(--accent-ink);background:linear-gradient(135deg,var(--accent),var(--coin))}
+.steps b{display:block;font-size:1rem}
+.steps small{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
+.who-line{margin:14px 0 0;font:600 .85rem var(--f-mono);letter-spacing:.06em;color:var(--muted);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.who-line i{width:28px;height:2px;background:linear-gradient(90deg,var(--accent),var(--coin))}
+.qrcard{position:relative}
+.qrglow{position:absolute;top:0;left:50%;width:clamp(260px,38vw,400px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,var(--accent) 0,transparent 68%);opacity:.28;filter:blur(30px);animation:qpulse 3.2s ease-in-out infinite;pointer-events:none}
+.qrframe{position:relative;padding:6px;border-radius:32px;overflow:hidden}
+.qrframe::before{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,var(--accent),var(--coin),transparent 38%,var(--accent) 60%,var(--coin),transparent 90%);animation:qspin 5s linear infinite}
+.qrframe .qrbox{position:relative;z-index:1;border-radius:26px;overflow:hidden;box-shadow:none;width:clamp(210px,30vw,320px)}
+.qrbox .scanline{position:absolute;left:0;right:0;top:0;height:46px;background:linear-gradient(180deg,transparent,rgba(62,224,176,.55),transparent);border-bottom:2px solid var(--accent);animation:qscan 2.6s ease-in-out infinite;pointer-events:none}
+.qrframe .cn{position:absolute;z-index:2;width:30px;height:30px;border:4px solid var(--coin);pointer-events:none}
+.cn.tl{top:14px;left:14px;border-right:0;border-bottom:0;border-top-left-radius:12px}
+.cn.tr{top:14px;right:14px;border-left:0;border-bottom:0;border-top-right-radius:12px}
+.cn.bl{bottom:14px;left:14px;border-right:0;border-top:0;border-bottom-left-radius:12px}
+.cn.br{bottom:14px;right:14px;border-left:0;border-top:0;border-bottom-right-radius:12px}
+.qrcard .qrcap{font:800 14px var(--f-mono);letter-spacing:.3em;color:var(--accent);animation:qblink 1.8s ease-in-out infinite}
+@keyframes qspin{to{transform:rotate(360deg)}}
+@keyframes qscan{0%{transform:translateY(-50px)}100%{transform:translateY(calc(clamp(210px,30vw,320px) - 2px))}}
+@keyframes qpulse{0%,100%{opacity:.2;transform:translateX(-50%) scale(.95)}50%{opacity:.4;transform:translateX(-50%) scale(1.05)}}
+@keyframes qblink{0%,100%{opacity:1}50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.qrframe::before,.qrbox .scanline,.qrglow,.qrcard .qrcap{animation:none!important}.qrbox .scanline{display:none}}</style>
 <title>Time Value of Money</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -264,7 +288,31 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 .gate p{margin:0;color:#93a3c0;line-height:1.55;font-size:.98rem}
 .gate ol{margin:0;padding-left:1.2em;text-align:left;color:#93a3c0;line-height:1.7}
 .gate a.instbtn{text-decoration:none}
-.gate .skip{background:none;border:0;color:#93a3c0;font:600 .9rem inherit;cursor:pointer;text-decoration:underline;padding:8px}</style>
+.gate .skip{background:none;border:0;color:#93a3c0;font:600 .9rem inherit;cursor:pointer;text-decoration:underline;padding:8px}.hello h2{font-size:clamp(2.2rem,min(6.8vw,10vh),4.4rem)}
+.steps{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px;max-width:30em}
+.steps li{display:flex;align-items:center;gap:14px;padding:8px 14px;border-radius:16px;border:1px solid var(--line);background:var(--glass);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+.steps li>span{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font:800 15px var(--f-mono);color:var(--accent-ink);background:linear-gradient(135deg,var(--accent),var(--coin))}
+.steps b{display:block;font-size:1rem}
+.steps small{display:block;color:var(--muted);font-size:.85rem;margin-top:2px}
+.who-line{margin:14px 0 0;font:600 .85rem var(--f-mono);letter-spacing:.06em;color:var(--muted);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.who-line i{width:28px;height:2px;background:linear-gradient(90deg,var(--accent),var(--coin))}
+.qrcard{position:relative}
+.qrglow{position:absolute;top:0;left:50%;width:clamp(260px,38vw,400px);aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,var(--accent) 0,transparent 68%);opacity:.28;filter:blur(30px);animation:qpulse 3.2s ease-in-out infinite;pointer-events:none}
+.qrframe{position:relative;padding:6px;border-radius:32px;overflow:hidden}
+.qrframe::before{content:"";position:absolute;inset:-60%;background:conic-gradient(from 0deg,var(--accent),var(--coin),transparent 38%,var(--accent) 60%,var(--coin),transparent 90%);animation:qspin 5s linear infinite}
+.qrframe .qrbox{position:relative;z-index:1;border-radius:26px;overflow:hidden;box-shadow:none;width:clamp(210px,30vw,320px)}
+.qrbox .scanline{position:absolute;left:0;right:0;top:0;height:46px;background:linear-gradient(180deg,transparent,rgba(62,224,176,.55),transparent);border-bottom:2px solid var(--accent);animation:qscan 2.6s ease-in-out infinite;pointer-events:none}
+.qrframe .cn{position:absolute;z-index:2;width:30px;height:30px;border:4px solid var(--coin);pointer-events:none}
+.cn.tl{top:14px;left:14px;border-right:0;border-bottom:0;border-top-left-radius:12px}
+.cn.tr{top:14px;right:14px;border-left:0;border-bottom:0;border-top-right-radius:12px}
+.cn.bl{bottom:14px;left:14px;border-right:0;border-top:0;border-bottom-left-radius:12px}
+.cn.br{bottom:14px;right:14px;border-left:0;border-top:0;border-bottom-right-radius:12px}
+.qrcard .qrcap{font:800 14px var(--f-mono);letter-spacing:.3em;color:var(--accent);animation:qblink 1.8s ease-in-out infinite}
+@keyframes qspin{to{transform:rotate(360deg)}}
+@keyframes qscan{0%{transform:translateY(-50px)}100%{transform:translateY(calc(clamp(210px,30vw,320px) - 2px))}}
+@keyframes qpulse{0%,100%{opacity:.2;transform:translateX(-50%) scale(.95)}50%{opacity:.4;transform:translateX(-50%) scale(1.05)}}
+@keyframes qblink{0%,100%{opacity:1}50%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.qrframe::before,.qrbox .scanline,.qrglow,.qrcard .qrcap{animation:none!important}.qrbox .scanline{display:none}}</style>
 
 <div class="bg" aria-hidden="true"><canvas id="fx"></canvas></div>
 <div class="orb a" id="orba" aria-hidden="true"></div><div class="orb b" id="orbb" aria-hidden="true"></div>
@@ -283,26 +331,29 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 
 <main class="deck" id="deck">
 
-<!-- 0 PERKENALAN + QR -->
-<section class="slide hello cover" data-title="Perkenalan">
+<!-- 0 SCAN QR -->
+<section class="slide hello cover" data-title="Scan QR">
   <div class="inner">
     <div>
-      <p class="eyebrow" data-a>Perkenalan</p>
-      <h2 data-a>Halo, kami <span class="grad">Kelompok 3</span></h2>
-      <p class="lead" data-a>Hari ini kami akan membahas <b>Time Value of Money</b>: mengapa nilai uang hari ini berbeda dengan nilai uang di masa depan, lengkap dengan rumus dan contohnya.</p>
-      <div class="team" data-a>
-        <div class="team-badge"><small>KELOMPOK</small><b>3</b></div>
-        <ul class="team-list" aria-label="Anggota Kelompok 3">
-          <li><span class="av">ND</span><span class="who"><small>ANGGOTA 1</small><span class="nm">Nadia Nadien</span><span class="nim">B.131.25.0336</span></span></li>
-          <li><span class="av">NM</span><span class="who"><small>ANGGOTA 2</small><span class="nm">Naufal Maulana Nosi P</span><span class="nim">B.131.25.0328</span></span></li>
-        </ul>
-      </div>
+      <p class="eyebrow" data-a>Kelompok 3 menyapa</p>
+      <h2 data-a>Scan &amp; <span class="grad">buka</span> presentasinya</h2>
+      <p class="lead" data-a>Pindai kode di samping dan ikuti materi <b>Time Value of Money</b> langsung dari HP Anda.</p>
+      <ol class="steps" data-a>
+        <li><span>1</span><div><b>Arahkan kamera</b><small>Buka kamera HP, arahkan ke kode QR.</small></div></li>
+        <li><span>2</span><div><b>Ketuk tautannya</b><small>Presentasi terbuka di layar Anda.</small></div></li>
+        <li><span>3</span><div><b>Pasang sebagai aplikasi</b><small>Satu ketukan, jadi ikon di layar utama.</small></div></li>
+      </ol>
+      <p class="who-line" data-a><i></i>Nadia Nadien &nbsp;•&nbsp; Naufal Maulana Nosi P</p>
     </div>
     <div class="qrcard" data-a>
-      <div class="qrbox"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code menuju presentasi TVM" shape-rendering="crispEdges" viewBox="0 0 37 37" class="segno"><path class="qrline" stroke="#000" d="M0 0.5h7m1 0h2m1 0h2m1 0h2m1 0h3m5 0h1m4 0h7m-37 1h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h4m1 0h1m4 0h2m1 0h1m1 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h4m3 0h1m4 0h2m2 0h5m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h8m1 0h1m1 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m1 0h3m1 0h2m5 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m2 0h3m1 0h1m3 0h2m1 0h4m1 0h1m4 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-26 1h2m1 0h3m2 0h1m3 0h3m2 0h1m-29 1h1m2 0h6m2 0h1m2 0h3m1 0h1m1 0h3m3 0h1m1 0h2m2 0h1m1 0h3m-34 1h3m2 0h1m2 0h2m1 0h1m2 0h1m2 0h1m1 0h2m2 0h2m1 0h1m1 0h5m-36 1h4m1 0h3m2 0h1m1 0h3m3 0h1m2 0h1m1 0h1m3 0h1m4 0h1m3 0h1m-37 1h2m2 0h1m2 0h4m2 0h3m1 0h1m4 0h2m2 0h1m2 0h1m3 0h4m-34 1h1m1 0h8m3 0h1m2 0h2m6 0h2m1 0h2m1 0h1m2 0h1m-37 1h2m2 0h1m2 0h1m5 0h1m1 0h4m1 0h1m1 0h2m2 0h3m3 0h2m1 0h1m-35 1h1m1 0h4m2 0h2m4 0h1m1 0h1m1 0h4m2 0h1m1 0h2m1 0h1m1 0h5m-37 1h1m2 0h1m3 0h2m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m7 0h1m1 0h2m1 0h1m-37 1h1m2 0h4m2 0h1m3 0h1m1 0h3m2 0h2m3 0h2m1 0h1m1 0h2m2 0h2m-31 1h1m2 0h1m3 0h2m2 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h1m-34 1h1m4 0h1m3 0h1m1 0h1m1 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h4m2 0h1m2 0h1m-37 1h1m1 0h1m2 0h1m3 0h1m3 0h1m9 0h8m5 0h1m-35 1h3m1 0h1m2 0h3m1 0h5m6 0h1m1 0h1m1 0h6m-34 1h1m1 0h3m2 0h1m1 0h1m2 0h1m1 0h2m3 0h1m1 0h3m1 0h3m1 0h1m2 0h1m1 0h1m-35 1h2m2 0h1m1 0h2m4 0h1m1 0h2m1 0h2m3 0h4m1 0h2m1 0h2m1 0h1m2 0h1m-35 1h3m2 0h2m2 0h2m1 0h2m1 0h1m2 0h3m3 0h1m1 0h1m1 0h7m-37 1h2m3 0h2m1 0h3m2 0h2m1 0h3m2 0h1m2 0h1m1 0h3m1 0h2m4 0h1m-37 1h1m1 0h3m3 0h1m1 0h2m1 0h1m2 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h4m-35 1h5m1 0h2m6 0h1m1 0h1m2 0h4m1 0h2m1 0h1m1 0h2m1 0h2m1 0h2m-37 1h1m2 0h2m2 0h1m1 0h3m2 0h2m2 0h1m1 0h1m2 0h2m4 0h3m1 0h2m1 0h1m-37 1h1m4 0h5m10 0h1m1 0h4m1 0h8m1 0h1m-29 1h3m2 0h1m1 0h2m1 0h3m4 0h1m2 0h1m3 0h1m1 0h1m-35 1h7m1 0h3m2 0h1m1 0h2m2 0h1m1 0h3m4 0h1m1 0h1m1 0h1m3 0h1m-37 1h1m5 0h1m1 0h1m2 0h1m5 0h4m1 0h1m1 0h2m1 0h2m3 0h1m2 0h2m-37 1h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h2m3 0h7m-33 1h1m1 0h3m1 0h1m1 0h5m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m3 0h2m5 0h1m-37 1h1m1 0h3m1 0h1m4 0h1m3 0h2m1 0h6m1 0h1m3 0h1m2 0h1m3 0h1m-37 1h1m5 0h1m7 0h1m1 0h2m1 0h2m1 0h1m1 0h1m4 0h2m1 0h5m-37 1h7m1 0h2m2 0h1m2 0h2m3 0h1m2 0h2m3 0h1m2 0h1m1 0h1m2 0h1"/></svg></div>
-      <span class="qrcap">SCAN • BUKA SEBAGAI APLIKASI</span>
+      <div class="qrglow" aria-hidden="true"></div>
+      <div class="qrframe">
+        <div class="qrbox"><svg xmlns="http://www.w3.org/2000/svg" role="img" aria-label="QR code menuju presentasi TVM" shape-rendering="crispEdges" viewBox="0 0 37 37" class="segno"><path class="qrline" stroke="#000" d="M0 0.5h7m1 0h2m1 0h2m1 0h2m1 0h3m5 0h1m4 0h7m-37 1h1m5 0h1m1 0h1m1 0h2m1 0h1m1 0h4m1 0h1m4 0h2m1 0h1m1 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h4m3 0h1m4 0h2m2 0h5m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h8m1 0h1m1 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h3m1 0h2m1 0h1m1 0h3m1 0h2m5 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m2 0h3m1 0h1m3 0h2m1 0h4m1 0h1m4 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-26 1h2m1 0h3m2 0h1m3 0h3m2 0h1m-29 1h1m2 0h6m2 0h1m2 0h3m1 0h1m1 0h3m3 0h1m1 0h2m2 0h1m1 0h3m-34 1h3m2 0h1m2 0h2m1 0h1m2 0h1m2 0h1m1 0h2m2 0h2m1 0h1m1 0h5m-36 1h4m1 0h3m2 0h1m1 0h3m3 0h1m2 0h1m1 0h1m3 0h1m4 0h1m3 0h1m-37 1h2m2 0h1m2 0h4m2 0h3m1 0h1m4 0h2m2 0h1m2 0h1m3 0h4m-34 1h1m1 0h8m3 0h1m2 0h2m6 0h2m1 0h2m1 0h1m2 0h1m-37 1h2m2 0h1m2 0h1m5 0h1m1 0h4m1 0h1m1 0h2m2 0h3m3 0h2m1 0h1m-35 1h1m1 0h4m2 0h2m4 0h1m1 0h1m1 0h4m2 0h1m1 0h2m1 0h1m1 0h5m-37 1h1m2 0h1m3 0h2m1 0h1m1 0h1m2 0h1m1 0h2m1 0h1m1 0h2m7 0h1m1 0h2m1 0h1m-37 1h1m2 0h4m2 0h1m3 0h1m1 0h3m2 0h2m3 0h2m1 0h1m1 0h2m2 0h2m-31 1h1m2 0h1m3 0h2m2 0h3m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m2 0h1m-34 1h1m4 0h1m3 0h1m1 0h1m1 0h2m1 0h1m2 0h1m1 0h2m1 0h1m1 0h4m2 0h1m2 0h1m-37 1h1m1 0h1m2 0h1m3 0h1m3 0h1m9 0h8m5 0h1m-35 1h3m1 0h1m2 0h3m1 0h5m6 0h1m1 0h1m1 0h6m-34 1h1m1 0h3m2 0h1m1 0h1m2 0h1m1 0h2m3 0h1m1 0h3m1 0h3m1 0h1m2 0h1m1 0h1m-35 1h2m2 0h1m1 0h2m4 0h1m1 0h2m1 0h2m3 0h4m1 0h2m1 0h2m1 0h1m2 0h1m-35 1h3m2 0h2m2 0h2m1 0h2m1 0h1m2 0h3m3 0h1m1 0h1m1 0h7m-37 1h2m3 0h2m1 0h3m2 0h2m1 0h3m2 0h1m2 0h1m1 0h3m1 0h2m4 0h1m-37 1h1m1 0h3m3 0h1m1 0h2m1 0h1m2 0h1m2 0h2m2 0h1m1 0h1m1 0h3m1 0h4m-35 1h5m1 0h2m6 0h1m1 0h1m2 0h4m1 0h2m1 0h1m1 0h2m1 0h2m1 0h2m-37 1h1m2 0h2m2 0h1m1 0h3m2 0h2m2 0h1m1 0h1m2 0h2m4 0h3m1 0h2m1 0h1m-37 1h1m4 0h5m10 0h1m1 0h4m1 0h8m1 0h1m-29 1h3m2 0h1m1 0h2m1 0h3m4 0h1m2 0h1m3 0h1m1 0h1m-35 1h7m1 0h3m2 0h1m1 0h2m2 0h1m1 0h3m4 0h1m1 0h1m1 0h1m3 0h1m-37 1h1m5 0h1m1 0h1m2 0h1m5 0h4m1 0h1m1 0h2m1 0h2m3 0h1m2 0h2m-37 1h1m1 0h3m1 0h1m1 0h3m1 0h1m1 0h1m4 0h1m1 0h2m3 0h7m-33 1h1m1 0h3m1 0h1m1 0h5m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m3 0h2m5 0h1m-37 1h1m1 0h3m1 0h1m4 0h1m3 0h2m1 0h6m1 0h1m3 0h1m2 0h1m3 0h1m-37 1h1m5 0h1m7 0h1m1 0h2m1 0h2m1 0h1m1 0h1m4 0h2m1 0h5m-37 1h7m1 0h2m2 0h1m2 0h2m3 0h1m2 0h2m3 0h1m2 0h1m1 0h1m2 0h1"/></svg><i class="scanline" aria-hidden="true"></i></div>
+        <b class="cn tl"></b><b class="cn tr"></b><b class="cn bl"></b><b class="cn br"></b>
+      </div>
+      <span class="qrcap">SCAN SAYA</span>
       <button class="instbtn" id="install2" type="button" hidden><svg viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg>Pasang aplikasi</button>
-      <p class="qrhow" id="qrhow"><b>Android (Chrome):</b> scan, lalu pilih <b>Pasang aplikasi</b>.<br><b>iPhone (Safari):</b> scan, ketuk <b>Bagikan</b>, lalu <b>Tambah ke Layar Utama</b>.</p>
+      <p class="qrhow" id="qrhow"><b>Android:</b> pilih <b>Pasang aplikasi</b>. &nbsp; <b>iPhone:</b> <b>Bagikan</b> lalu <b>Tambah ke Layar Utama</b>.</p>
       <span class="qrurl">naufalmaulananosipratama-sketch.github.io/presentasi</span>
     </div>
   </div>
