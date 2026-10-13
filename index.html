@@ -17,7 +17,15 @@
 .instbtn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:0;cursor:pointer;background:var(--accent);color:var(--accent-ink);font:700 .95rem var(--f-body,inherit)}
 .instbtn[hidden]{display:none}
 .instbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.hello h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}</style>
+.hello h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}.gate{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(7,13,26,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.gate.on{display:flex}
+.gate .box{max-width:420px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;color:#eaf0fb}
+.gate img{width:84px;height:84px;border-radius:20px}
+.gate h3{margin:0;font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.gate p{margin:0;color:#93a3c0;line-height:1.55;font-size:.98rem}
+.gate ol{margin:0;padding-left:1.2em;text-align:left;color:#93a3c0;line-height:1.7}
+.gate a.instbtn{text-decoration:none}
+.gate .skip{background:none;border:0;color:#93a3c0;font:600 .9rem inherit;cursor:pointer;text-decoration:underline;padding:8px}</style>
 <title>Time Value of Money</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -248,7 +256,15 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 .instbtn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;border:0;cursor:pointer;background:var(--accent);color:var(--accent-ink);font:700 .95rem var(--f-body,inherit)}
 .instbtn[hidden]{display:none}
 .instbtn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.hello h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}</style>
+.hello h2{font-size:clamp(2.2rem,6.5vw,4.6rem);font-weight:800;letter-spacing:-.04em;line-height:1}.gate{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(7,13,26,.94);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.gate.on{display:flex}
+.gate .box{max-width:420px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:16px;color:#eaf0fb}
+.gate img{width:84px;height:84px;border-radius:20px}
+.gate h3{margin:0;font-size:1.7rem;font-weight:800;letter-spacing:-.02em}
+.gate p{margin:0;color:#93a3c0;line-height:1.55;font-size:.98rem}
+.gate ol{margin:0;padding-left:1.2em;text-align:left;color:#93a3c0;line-height:1.7}
+.gate a.instbtn{text-decoration:none}
+.gate .skip{background:none;border:0;color:#93a3c0;font:600 .9rem inherit;cursor:pointer;text-decoration:underline;padding:8px}</style>
 
 <div class="bg" aria-hidden="true"><canvas id="fx"></canvas></div>
 <div class="orb a" id="orba" aria-hidden="true"></div><div class="orb b" id="orbb" aria-hidden="true"></div>
@@ -542,6 +558,20 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
 
 </main>
 
+<div class="gate" id="gate" role="dialog" aria-modal="true" aria-labelledby="gt">
+  <div class="box">
+    <img src="icon-192.png" alt="">
+    <h3 id="gt">Buka sebagai aplikasi</h3>
+    <div id="g-and" hidden>
+      <p>Unduh aplikasi TVM untuk Android, lalu buka file yang terunduh dan izinkan pemasangan saat diminta.</p>
+    </div>
+    <div id="g-ios" hidden>
+      <ol><li>Ketuk tombol <b>Bagikan</b> di Safari.</li><li>Pilih <b>Tambah ke Layar Utama</b>.</li><li>Buka ikon <b>TVM</b> dari layar utama.</li></ol>
+    </div>
+    <a class="instbtn" id="g-apk" href="https://github.com/naufalmaulananosipratama-sketch/presentasi/releases/download/apk/tvm.apk" hidden>Unduh aplikasi (APK)</a>
+    <button class="skip" id="g-skip" type="button">Lanjut di web</button>
+  </div>
+</div>
 <canvas id="cf" aria-hidden="true"></canvas>
 <div class="hint" id="hint">Tekan ← → atau geser untuk pindah slide</div>
 
@@ -859,6 +889,18 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
   window.addEventListener('appinstalled',function(){dp=null;show(false);if(how)how.style.display='none'});
   if(b)b.addEventListener('click',ask);
   if(b2)b2.addEventListener('click',ask);
+  (function(){
+    var ua=navigator.userAgent,inApp=/TVMApp/.test(ua)||(window.matchMedia&&matchMedia('(display-mode: standalone)').matches)||navigator.standalone;
+    if(inApp){var q=document.getElementById('qrhow');if(q)q.style.display='none';return}
+    var g=document.getElementById('gate');if(!g||!/[?&]src=qr/.test(location.search))return;
+    try{if(sessionStorage.getItem('gate')==='x')return}catch(e){}
+    var and=/Android/i.test(ua),ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
+    if(!and&&!ios)return;
+    document.getElementById(and?'g-and':'g-ios').hidden=false;
+    if(and)document.getElementById('g-apk').hidden=false;
+    g.classList.add('on');
+    document.getElementById('g-skip').addEventListener('click',function(){g.classList.remove('on');try{sessionStorage.setItem('gate','x')}catch(e){}});
+  })();
 })();
 </script>
 </html>
