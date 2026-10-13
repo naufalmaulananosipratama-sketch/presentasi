@@ -563,12 +563,12 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
     <img src="icon-192.png" alt="">
     <h3 id="gt">Buka sebagai aplikasi</h3>
     <div id="g-and" hidden>
-      <p>Unduh aplikasi TVM untuk Android, lalu buka file yang terunduh dan izinkan pemasangan saat diminta.</p>
+      <p id="g-and-t">Ketuk tombol di bawah untuk memasang TVM. Tanpa unduh file, langsung jadi aplikasi.</p>
     </div>
     <div id="g-ios" hidden>
       <ol><li>Ketuk tombol <b>Bagikan</b> di Safari.</li><li>Pilih <b>Tambah ke Layar Utama</b>.</li><li>Buka ikon <b>TVM</b> dari layar utama.</li></ol>
     </div>
-    <a class="instbtn" id="g-apk" href="https://github.com/naufalmaulananosipratama-sketch/presentasi/releases/download/apk/tvm.apk" hidden>Unduh aplikasi (APK)</a>
+    <button class="instbtn" id="g-install" type="button" hidden>Buka sebagai aplikasi</button>
     <button class="skip" id="g-skip" type="button">Lanjut di web</button>
   </div>
 </div>
@@ -897,9 +897,17 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
     var and=/Android/i.test(ua),ios=/iPhone|iPad|iPod/i.test(ua)||(/Macintosh/.test(ua)&&navigator.maxTouchPoints>1);
     if(!and&&!ios)return;
     document.getElementById(and?'g-and':'g-ios').hidden=false;
-    if(and)document.getElementById('g-apk').hidden=false;
     g.classList.add('on');
-    document.getElementById('g-skip').addEventListener('click',function(){g.classList.remove('on');try{sessionStorage.setItem('gate','x')}catch(e){}});
+    var gi=document.getElementById('g-install'),gt=document.getElementById('g-and-t');
+    if(and){
+      if(gt)gt.textContent='Menyiapkan pemasangan aplikasi...';
+      if(dp)gi.hidden=false;
+      window.addEventListener('beforeinstallprompt',function(){gi.hidden=false;if(gt)gt.textContent='Ketuk tombol di bawah untuk memasang TVM. Tanpa unduh file, langsung jadi aplikasi.'});
+      setTimeout(function(){if(gi.hidden&&gt)gt.innerHTML='Buka menu <b>&#8942;</b> di Chrome, lalu pilih <b>Pasang aplikasi</b> atau <b>Tambahkan ke layar utama</b>.'},2500);
+      gi.addEventListener('click',function(){ask();g.classList.remove('on')});
+    }
+    document.getElementById('g-skip').addEventListener('click',function(){g.classList.remove('on');try{sessionStorage.setItem('gate','x')}catch(e){}
+      var de=document.documentElement;if(and&&de.requestFullscreen)de.requestFullscreen().catch(function(){})});
   })();
 })();
 </script>
