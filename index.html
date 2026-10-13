@@ -322,6 +322,7 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
   <div class="brand"><b>TVM</b> <span>• Time Value of Money</span></div>
   <div class="tools">
     <div class="count" id="count" aria-live="polite">01 <span>/ 13</span></div>
+    <button class="ibtn" id="dlapp" type="button" style="width:auto;border-radius:99px;padding:0 14px;gap:8px;font:700 12px var(--f-mono);letter-spacing:.06em;background:var(--accent);color:var(--accent-ink);border-color:var(--accent)" aria-label="Pasang sebagai aplikasi"><svg viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></svg><span>PASANG APLIKASI</span></button>
     <button class="ibtn" id="play" type="button" aria-pressed="false" aria-label="Putar otomatis"><svg viewBox="0 0 24 24" id="play-i"><path d="M8 5l11 7-11 7z" fill="currentColor"/></svg></button>
     <button class="ibtn" id="theme" type="button" aria-label="Ganti tema terang atau gelap"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 3v18" /><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
     <button class="ibtn" id="fs" type="button" aria-label="Layar penuh"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
@@ -920,6 +921,17 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
   if(window.matchMedia&&matchMedia('(display-mode: standalone)').matches||navigator.standalone){if(how)how.style.display='none'}
   window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();dp=e;show(true)});
   window.addEventListener('appinstalled',function(){dp=null;show(false);if(how)how.style.display='none'});
+  var da=document.getElementById('dlapp');
+  if(da){
+    var inst=window.matchMedia&&matchMedia('(display-mode: standalone)').matches||navigator.standalone;
+    if(inst)da.hidden=true;
+    window.addEventListener('appinstalled',function(){da.hidden=true});
+    da.addEventListener('click',function(){
+      if(dp){ask();return}
+      var ios=/iPhone|iPad|iPod/i.test(navigator.userAgent);
+      alert(ios?'Ketuk tombol Bagikan, lalu pilih "Tambah ke Layar Utama".':'Buka menu browser (titik tiga), pilih "Aplikasi" lalu "Instal situs ini sebagai aplikasi" (Edge), atau "Instal aplikasi" (Chrome).');
+    });
+  }
   if(b)b.addEventListener('click',ask);
   if(b2)b2.addEventListener('click',ask);
   (function(){
