@@ -899,7 +899,7 @@ input[type=range]{width:100%;accent-color:var(--accent);margin:0}
   $('play').addEventListener('click',function(){setPlay(!playing)});
 
   /* mulai */
-  var start=0,m=/^#s(\d+)$/.exec(location.hash||'');
+  var start=/[?&]src=qr/.test(location.search)?1:0,m=/^#s(\d+)$/.exec(location.hash||'');
   if(m)start=Math.max(0,Math.min(total-1,parseInt(m[1],10)-1));
   go(start);
   window.addEventListener('hashchange',function(){var q=/^#s(\d+)$/.exec(location.hash||'');if(q)go(parseInt(q[1],10)-1)});
